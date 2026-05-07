@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 
 const Category = ({detail}) => {
     console.log(detail);
@@ -6,11 +7,10 @@ const Category = ({detail}) => {
     <div className='meals'>
         {!detail ? "" : detail.map((curItem)=>{
             return (
-                <div className='mealImg'>
+                <div className='mealImg'  key={curItem.idMeal}>
                   <img src={curItem.strMealThumb}/>
                   <p>{curItem.strMeal}</p>
-                 <button>Recipe</button>
-                   
+                 <NavLink to={`${curItem.idMeal}`}><button>Recipe</button> </NavLink>
                 </div>
             )
         }) 
